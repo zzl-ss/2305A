@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // var name = 'window'
+
+    // var A = {
+    //     name: 'A'
+    //     sayHello: function () {
+    //         console.log(this.name);
+    //     }
+    // }
+
+    // A.sayHello()
+    // var B = {
+    //     name: 'B'
+    // }
+
+    // A.sayHello.call(B)
+    // A.sayHello.call()
+
+
+    // var name = 'window'
+    // var A = {
+    //     name: 'A',
+    //     sayHello: () => {
+    //         console.log(this.name);
+    //     }
+    // }
+    // A.sayHello()
+
+    var name = 'window'
+    var A = {
+        name: 'A',
+        sayHello: function () {
+            var s = () => console.log(this.name);
+            return s
+        }
+    }
+    var sayHello = A.sayHello()
+    sayHello()
+    var B = {
+        name: 'B'
+    }
+    sayHello.call(B)
+    sayHello.call()
+</script>
+<style>
+
+</style>
+
+</html>

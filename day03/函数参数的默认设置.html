@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function add(a, c = 10, b) {
+        return a + b + c
+    }
+    let result = add(1, 2)
+    console.log(result);
+
+    function connent({ host = '127..0..1', username, password, pord }) {
+        console.log(host);
+        console.log(password);
+        console.log(port);
+    }
+    connent({
+        host: 'at',
+        username: 'root',
+        password: 'root'
+    })
+
+    function person() {
+        console.log(arguments);
+    }
+    person([1, 2, 3.4, 5, 6])
+
+    const fan = (a, b, ...args) => {
+        console.log(args);
+    }
+    fan('小徐', '小周', '小张')
+</script>
+
+</html>

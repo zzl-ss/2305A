@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="background">
+        <canvas id="canvas"></canvas>
+    </div>
+    <div class="nav">
+        <div class="left"></div>
+        <div class="list">
+            <div class="sj"></div>
+            <h1>原生js点名器效果</h1>
+            <div class="item">随即点击</div>
+            <button class="button" onclick="ready()">开始</button>
+        </div>
+    </div>
+</body>
+<script>
+
+    var Data = ['姚新奇',
+        '黄文龙',
+        '杨文航',
+        '石海滨',
+        '刘乐',
+        '韩昊天',
+        '王子默',
+        '黄金祥',
+        '孙晨',
+        '李周硕',
+        '孙小云',
+        '杨名迪',
+        '孙泽森',
+        '米子奇',
+        '李洋',
+        '马浩阳',
+        '侯婉茹',
+        '俎召铃',
+        '白颖帆',
+        '王震霆',
+        '李金阳',
+        '肖富兴',
+        '贾亚锐',
+        '胡星宇',
+        '卢孟磊',
+        '邓恒智',
+        '胡明言',
+        '徐政田',
+        '刘豪然',
+        '和清龙',
+        '刘东宇',
+        '胡雅茜']
+    var a = 0, time = null, aa = null
+    let bg = ''
+    function ready() {
+        let button = document.querySelector('.button')
+        let item = document.querySelector('.item')
+
+        if (button.innerHTML == '开始') {
+            button.innerHTML = '结束'
+            button.style.backgroundColor = 'red'
+            // let aa = setInterval(function () {
+            //     var text = document.querySelector('.item');
+            //     text.style.color = getRandomColor();
+            // }, 50);
+
+            // function getRandomColor() {
+            //     var letters = '0123456789ABCDEF';
+            //     var color = '#';
+            //     for (var i = 0; i < 6; i++) {
+            //         color += letters[Math.floor(Math.random() * 16)];
+            //     }
+            //     bg = color
+            //     return color;
+            // }
+
+        } else {
+            clearInterval(aa)
+            button.innerHTML = '开始'
+            button.style.backgroundColor = 'green'
+
+        }
+        if (button.innerHTML == '结束') {
+            time = setInterval(function () {
+                var aaa = document.querySelectorAll('span')
+                // var i = Math.floor(Math.random() * Data.length)
+                for (let j = 0; j < aaa.length; j++) {
+                    aaa[j].className = ''
+                }
+                aaa[a].className = 'div'
+                item.innerHTML = Data[a]
+                a = a >= Data.length - 1 ? 0 : a
+                a++
+            }, 50)
+        } else {
+            clearInterval(time)
+        }
+    }
+
+    // function showTime() {
+    //     var date = new Date();
+    //     // 年月日
+    //     var year = date.getFullYear();
+    //     var month = date.getMonth() + 1;
+    //     var day = date.getDate();
+    //     // 时分秒
+    //     var hour = date.getHours();
+    //     var minute = date.getMinutes();
+    //     var second = date.getSeconds();
+    //     // 实时显示
+    //     var element = document.querySelector('.sj')
+    //     element.innerHTML = '<h1>' + year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+    // }
+    // setInterval('showTime()', 1000);
+
+    window.onload = function () {
+        getfn()
+    }
+    function getfn() {
+        var data = new Date().toLocaleString()
+        var element = document.querySelector('.sj')
+        element.innerHTML = '<h1>' + data + '</h1>'
+    }
+    setInterval(getfn, 1000)
+
+
+
+    var canvar = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    // 代码雨的内容
+    var texts = '01'.split('');
+    var fontSize = 14;
+    var colums = canvas.width / fontSize;
+    // 定义一个数组
+    var drops = [];
+    for (var x = 0; x < colums; x++) {
+        drops[x] = 1;
+    }
+
+    function draw() {
+        // 设置画布背景
+        ctx.fillStyle = 'rgba(0,0,0,0.05)';
+        // 在画布中设置一个矩形
+        ctx.fillRect(0, 0, canvas.width, canvar.height);
+        // 设置文字颜色
+        ctx.fillStyle = '#0f0';
+        // 设置文字大小和样式
+        ctx.font = fontSize + 'px arial';
+        // 逐行输出文字
+        for (var i = 0; i < drops.length; i++) {
+            var text = texts[Math.floor(Math.random() * texts.length)]
+            ctx.fillText(text, fontSize * i, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+    setInterval(draw, 33);
+
+    function bg3() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + ',' + g + ',' + b + ")";//所有方法的拼接都可以用ES6新特性`其他字符串{$变量名}`替换
+    }
+    console.log(bg3());
+    function deg() {
+        let p = Math.floor(Math.random() * 360);
+        return p
+    }
+    // ${ deg() } deg
+    for (let i = 0; i < Data.length; i++) {
+        var left = document.querySelector('.left')
+
+        left.innerHTML += `<span style="background: linear-gradient(to right, ${bg3()}, ${bg3()}, ${bg3()}, ${bg3()}); ">${Data[i]}</span>`
+    }
+
+
+
+
+
+</script>
+<style>
+    body {
+        margin: 0 auto;
+        text-align: center;
+        color: #fff;
+    }
+
+    .list {
+        width: 400px;
+        height: 600px;
+        background-color: #ffffff61;
+        margin-top: 40px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .item {
+        width: 200px;
+        height: 50px;
+        margin: 40px auto;
+        border-radius: 10px;
+        line-height: 40px;
+        color: #fff;
+        transition: color 0.05s to right;
+        background: linear-gradient(to right, #14ffe9, #ffeb3b, rgb(255, 0, 225), rgb(34, 0, 255), red);
+        font-size: 50px;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: ani 1s infinite ease-in-out;
+    }
+
+    .button {
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        background-color: green;
+        border-radius: 5px;
+        border: 0;
+        margin-top: 250px;
+        color: #fff;
+    }
+
+    #background {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -999;
+    }
+
+    @keyframes ani {
+        0% {
+            background-position: 250px 200px;
+        }
+
+        100% {
+            background-position: 450px 400px;
+
+        }
+    }
+
+    .left {
+        width: 500px;
+        height: 600px;
+        background-color: #ffffff61;
+        margin-top: 40px;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 20px;
+        align-items: center;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    span {
+        width: 100px;
+        height: 60px;
+        line-height: 60px;
+        background: linear-gradient(to right, #14ffe9, #ffeb3b, rgb(255, 0, 225), rgb(34, 0, 255), red);
+        -webkit-background-clip: text !important;
+        color: transparent;
+        animation: ani 3s infinite ease-in-out;
+        background-position: 200px 200px;
+    }
+
+    .div {
+        width: 100px;
+        height: 60px;
+        line-height: 60px;
+        background: linear-gradient(320deg, #14ffe9, #ffeb3b, rgb(255, 0, 225), rgb(34, 0, 255), red) !important;
+        color: #000;
+        animation: aa 3s infinite ease-in-out;
+    }
+
+    @keyframes aa {
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+</style>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点名器</title>
+    <style>
+        body {
+            margin: 0 auto;
+            text-align: center;
+        }
+        .box {
+            display: block;
+            background-color: #FD581E;
+            margin: 0 auto;
+            padding-top: 50px;
+            border-radius: 10px;
+            width: 300px;
+            height: 150px;
+            box-shadow: 0px 0px 4px 4px #c3c3c3;
+        }
+        .showName {
+            background-color: #c3c3c3;
+            margin: 0 auto;
+            border-radius: 5px;
+            width: 200px;
+            height: 45px;
+            line-height: 45px;
+            font-size: 18px;
+            font-weight: bolder;
+        }
+        button {
+            margin-top: 30px;
+            background-color: #017515;
+            border: #c3c3c3 1px solid;
+            border-radius: 3px;
+            box-shadow: 0px 0px 4px 2px #c3c3c3;
+            padding: 5px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>原生js点名器演示</h1>
+    <div class="box">
+        <div id="sid" class="showName">
+            随机点名器
+        </div>
+        <button id="bid" onclick="doShowName();">开 始</button>
+    </div>
+    <script>
+        //创建一个数组存放点名的内容
+        var Data = ['姚新奇',
+            '黄文龙',
+            '杨文航',
+            '石海滨',
+            '刘乐',
+            '韩昊天',
+            '王子默',
+            '黄金祥',
+            '孙晨',
+            '李周硕',
+            '孙小云',
+            '杨名迪',
+            '孙泽森',
+            '米子奇',
+            '李洋',
+            '马浩阳',
+            '侯婉茹',
+            '俎召铃',
+            '白颖帆',
+            '王震霆',
+            '李金阳',
+            '肖富兴',
+            '贾亚锐',
+            '胡星宇',
+            '卢孟磊',
+            '邓恒智',
+            '胡明言',
+            '徐政田',
+            '刘豪然',
+            '和清龙',
+            '刘东宇',
+            '胡雅茜']
+        var m = 0, mytime = null;
+        function doShowName() {
+            var bid = document.getElementById("bid");
+            if (bid.innerText == "开 始") {
+                bid.innerText = "停 止";
+                bid.style.backgroundColor = "#FF061C";
+            } else {
+                bid.innerText = "开 始";
+                bid.style.backgroundColor = "#017515";
+            }
+            if (bid.innerText == "停 止") {
+                mytime = setInterval(function () {
+                    document.getElementById("sid").innerHTML = Data[m];
+                    //console.log(Data[m]);
+                    m++;
+                    m = m >= Data.length ? 0 : m;
+                }, 100)
+            } else {
+                clearInterval(mytime);
+            }
+
+        }
+    </script>
+</body>
+
+</html>

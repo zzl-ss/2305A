@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const s2 = new Set(['喜事', '坏事', '大事', '小事'])
+
+    s2.add('没事')
+    console.log(s2);
+    s2.delete('小事')
+    console.log(s2);
+    console.log(s2.has('操心事'));
+    s2.clear()
+    console.log(s2);
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="list">
+        <li class="item">1</li>
+        <li class="item">2</li>
+        <li class="item">3</li>
+    </ul>
+</body>
+<script>
+    let item = document.querySelectorAll('.item')
+    for (let i = 0; i < item.length; i++) {
+        item[i].onclick = function () {
+            if (item[i].className == 'item') {
+                item[i].className = 'pink'
+            } else {
+                item[i].className = 'item'
+            }
+        }
+    }
+</script>
+<style>
+    .list {
+        display: flex;
+    }
+
+    .item {
+        list-style: none;
+        width: 80px;
+        height: 35px;
+        background-color: azure;
+        margin: 0 5px;
+    }
+
+    .pink {
+        background-color: pink;
+        list-style: none;
+        width: 80px;
+        height: 35px;
+        margin: 0 5px;
+    }
+</style>
+
+</html>

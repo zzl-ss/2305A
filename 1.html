@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // let F4 = ['蔡徐坤', '吴亦凡', '罗志祥']
+    // let [xiao, liu, zhao] = F4
+    // console.log(xiao);
+    // console.log(zhao);
+
+    // let personObj = {
+    //     name: '胡星宇',
+    //     age: 18,
+    //     say: function () {
+    //         alert('我在说话')
+    //     }
+    // }
+    // let { name: data, age } = personObj
+    // let { say } = personObj
+    // console.log(age, data);
+    // console.log(name);
+    // say()
+
+    // let result = '<div>' + '<p>' + '夕阳无限好,只是近黄昏' + '</p>' + '<p>' + '但是龙城飞将在,不教胡马度阴山' + '</p>' + '</div>'
+    // let name = '清华';
+    // let change = function () {
+    //     console.log("我们可以改变你");
+    // }
+    // const school = {
+    //     name,
+    //     change,
+    //     improve() {
+    //         console.log('我们可以提高你的技能');
+    //     }
+    // }
+    // console.log(school);
+
+
+
+    function Person(name, age) {
+        this.name = name
+        this.age = age
+
+    }
+    Person.prototype.sayHai = function () {
+        alert('我在说话')
+    }
+
+    const sexPerson = new Person('小南', 18)
+    const sexPersonaaaa = new Person('小南sss', 18555)
+    console.log(sexPerson, '50');
+    console.log(sexPerson.name);
+    console.log(sexPerson.age);
+    console.log(sexPersonaaaa.age);
+
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const fs = require('fs')
+    function getPeach() {
+        return new Promise((resolve, reject) => {
+            fs.readFile('./resource/桃花源记.md', (err, data) => {
+                if (err) reject(err)
+                resolve(data)
+            })
+        })
+    }
+
+    function getAgent() {
+        return new Promise((resolve, reject) => {
+            fs.readFile('./resource/出居用关.md', (err, data) => {
+                if (err) reject(err)
+                resolve(data)
+            })
+        })
+    }
+    function getTroops() {
+        return new Promise((resolve, reject) => {
+            fs.readFile('./resource/出师表.md', (err, data) => {
+                if (err) reject(err)
+                resolve(data)
+            })
+        })
+    }
+    getPeach().then(res => {
+        console.log(res.toString());
+        const data1 = res.toString()
+        return data1
+    }).then(res => {
+        console.log(res);
+        const data2 = getAgent().then(data => data.toString())
+        return data2
+    }).then(res2 => {
+        console.log(res2, '61');
+    })
+</script>
+<style>
+
+</style>
+
+</html>
